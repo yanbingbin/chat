@@ -31,7 +31,7 @@ body{
     position: absolute;  
 	top: 0;
 	left: 0.3rem;
-	background:url(../images/left.png) no-repeat;
+	background:url(../chatImages/left.png) no-repeat;
     width: 0.2rem;
     height:0.4rem;
     margin-top: 0.34rem;
@@ -126,7 +126,7 @@ body{
 
 .show .msg_input{
 	position: absolute;
-	background: url(../images/msg-input.png) no-repeat;
+	background: url(../chatImages/msg-input.png) no-repeat;
 	background-size: 0.31rem auto;
 	width: 0.31rem;
 	height: 0.51rem;
@@ -135,7 +135,7 @@ body{
 }
 .send .msg_input{
 	position: absolute;
-	background: url(../images/msg-input.png) no-repeat;
+	background: url(../chatImages/msg-input.png) no-repeat;
 	background-size: 0.31rem auto;
 	width: 0.31rem;
 	height: 0.51rem;

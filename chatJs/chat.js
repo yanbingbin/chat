@@ -19,6 +19,7 @@ var message = ''; // 接收接口返回的数据
 
 
 $(function(){
+	$('#inputVal').focus();
 	$('.footer').on('keyup','input',function(){
 		if($(this).val().length>0){
 			$(this).next().css('background','#114F8E');
@@ -27,19 +28,27 @@ $(function(){
 			$(this).next().css('background','#ddd');
 		}
 	});
-	$('.footer p').click(function(){
-		if($(this).prev().val() == '') return;
+
+	$('.footer p').click(getMessage);
+	$(document).keyup(function(ev) {
+		if(ev.keyCode == 13) {
+			getMessage();
+		}
+	})
+
+	function getMessage(){
+		var val = $('#inputVal').val();
+		if( val == '') return;
 		if(flag){
 			flag = false;
-		
-			console.log($(this).prev().val());
+
 			 $.ajax({
 			      type: "post",
 			      dataType: "json",
 			      url: "http://www.tuling123.com/openapi/api",
 			      data:{
 			      	key:"fd858f311a7444888d1516fd55b86459", //这里的key需要自己去图灵机器人申请
-			      	info:$(this).prev().val(),
+			      	info:val,
 			      	userid:"123456"
 			      },
 			      success: function (data) {
@@ -47,14 +56,14 @@ $(function(){
 			      	// console.log(data); {code:10000,text:"返回的信息"}
 			      	message = data.text;
 
-					show("./images/touxiangm.png",$(".footer input").val(),"show");
+					show("./chatImages/touxiangm.png",$(".footer input").val(),"show");
 					setTimeout(function(){
-						show("images/touxiang.png",message,"send");
+						show("chatImages/touxiang.png",message,"send");
 					},500);	
 					$(".footer input").val("").next().css('background','#ddd');//清空input
 			      }
 	    	});
 	 	}	
-	});
+	}
 });
 
